@@ -3,7 +3,10 @@ import gdbm
 import time
 import click
 import requests
-import logging as log
+import logging
+
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger("collector")
 
 
 @contextlib.contextmanager
@@ -36,8 +39,7 @@ def collect(dbpath, host, port):
     except Exception as exc:
         log.exception("Error saving data for {}:{}".format(host, port))
         return
-    log.info('Data collected', host=host, port=port,
-             num_stacks=len(data) - 2)
+    log.info("Data collected from {}:{}, number of stacks: {}".format(host, port, len(data) - 2))
 
 
 def save(data, host, port, dbpath):

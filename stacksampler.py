@@ -17,7 +17,9 @@ import signal
 import time
 from werkzeug.serving import BaseWSGIServer, WSGIRequestHandler
 from werkzeug.wrappers import Request, Response
-import logging as log
+import logging
+
+log = logging.getLogger("stacksampler")
 
 class Sampler(object):
     """
