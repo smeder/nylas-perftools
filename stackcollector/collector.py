@@ -3,10 +3,7 @@ import dbm
 import time
 import click
 import requests
-from nylas.logging import get_logger, configure_logging
-
-configure_logging()
-log = get_logger()
+import logging as log
 
 
 @contextlib.contextmanager

@@ -1,7 +1,7 @@
 import calendar
 import click
 import dateparser
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from collector import getdb
 
 
@@ -65,7 +65,7 @@ def data():
         until = _parse_relative_date(until)
     threshold = float(request.args.get('threshold', 0))
     root = Node('root')
-    with getdb('/var/lib/stackcollector/db') as db:
+    with getdb(app.config['DBPATH']) as db:
         keys = db.keys()
         for k in keys:
             entries = db[k].split()
@@ -88,8 +88,10 @@ def render():
 
 
 @click.command()
+@click.option('--dbpath', '-d', default='/var/lib/stackcollector/db')
 @click.option('--port', type=int, default=9999)
-def run(port):
+def run(dbpath, port):
+    app.config['DBPATH'] = dbpath
     app.run(host='0.0.0.0', port=port)
 
 if __name__ == '__main__':

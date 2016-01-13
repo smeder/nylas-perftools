@@ -17,9 +17,7 @@ import signal
 import time
 from werkzeug.serving import BaseWSGIServer, WSGIRequestHandler
 from werkzeug.wrappers import Request, Response
-from nylas.logging import get_logger
-log = get_logger()
-
+import logging as log
 
 class Sampler(object):
     """
