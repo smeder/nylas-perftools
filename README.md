@@ -47,12 +47,20 @@ The collector assumes that processes expose profiles in the [flamegraph line for
 
 ```
 # Every minute, gather stacks from a local process listening on port 16384.
-python -m stackcollector.collector --host localhost -port 16384 --interval 60
+python -m stackcollector.collector --host localhost --ports 16384 --interval 60
 ```
 
 ## Running the visualizer
 
+Install JS dependencies using bower:
 ```
+cd stacksampler/static
+bower install
+```
+then
+
+```
+cd ../..
 python -m stackcollector.visualizer --port 5555
 ```
 

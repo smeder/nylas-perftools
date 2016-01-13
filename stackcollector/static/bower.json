@@ -1,0 +1,22 @@
+{
+  "name": "static",
+  "homepage": "https://github.com/nylas/nylas-perftools",
+  "authors": [
+    "Sam Meder <sam.meder@pinterest.com>"
+  ],
+  "description": "Javascript dependencies for rendering flamegraph",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3-flame-graph": "~0.4.2"
+  }
+}

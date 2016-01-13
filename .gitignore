@@ -7,3 +7,6 @@ include/
 lib/
 local/
 stackcollector.egg-info/
+.idea
+*.iml
+stackcollector/static/bower_components/
