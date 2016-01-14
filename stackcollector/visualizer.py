@@ -63,7 +63,7 @@ def data():
     until = request.args.get('until')
     if until is not None:
         until = _parse_relative_date(until)
-    threshold = float(request.args.get('threshold', 0))
+    threshold = float(request.args.get('threshold', 0.0001))
     root = Node('root')
     with getdb(app.config['DBPATH']) as db:
         keys = db.keys()
